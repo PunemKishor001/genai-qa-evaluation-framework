@@ -1,0 +1,827 @@
+{
+  "assessment": "Marlabs GenAI QA Candidate Assessment",
+  "evaluation_mode": "offline_recording_evaluation",
+  "total_recordings": 12,
+  "results": [
+    {
+      "recording_id": "01",
+      "overall_verdict": "PASS",
+      "pass_count": 6,
+      "fail_count": 0,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "All citation quotations reference eligible policy text."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 25000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "Required fact is present."
+        }
+      ]
+    },
+    {
+      "recording_id": "02",
+      "overall_verdict": "FAIL",
+      "pass_count": 3,
+      "fail_count": 3,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P05"
+          ],
+          "observed": [
+            "P02"
+          ],
+          "verdict": "FAIL",
+          "reason": "Ineligible context detected: ['P02']"
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "FAIL",
+          "reason": "P02: citation references an ineligible policy"
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 25000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 10,000",
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "FAIL",
+          "reason": "Required fact is missing from the answer."
+        }
+      ]
+    },
+    {
+      "recording_id": "03",
+      "overall_verdict": "FAIL",
+      "pass_count": 3,
+      "fail_count": 3,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P01"
+          ],
+          "verdict": "FAIL",
+          "reason": "Ineligible context detected: ['P01']"
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P01",
+              "quote": "The annual certification reimbursement limit for employees is INR 40000."
+            }
+          ],
+          "verdict": "FAIL",
+          "reason": "P01: citation references an ineligible policy"
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The annual limit is INR 40,000.",
+            "citations": [
+              {
+                "chunk_id": "P01",
+                "quote": "The annual certification reimbursement limit for employees is INR 40000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "The annual limit is INR 40,000.",
+          "verdict": "FAIL",
+          "reason": "Required fact is missing from the answer."
+        }
+      ]
+    },
+    {
+      "recording_id": "04",
+      "overall_verdict": "FAIL",
+      "pass_count": 2,
+      "fail_count": 2,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P07",
+            "P08"
+          ],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": {
+            "status": "CONFLICT",
+            "answer": null,
+            "citations": []
+          },
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The annual home-office allowance is INR 12,000.",
+            "citations": [
+              {
+                "chunk_id": "P07",
+                "quote": "The annual home-office allowance for employees is INR 12000."
+              }
+            ]
+          },
+          "verdict": "FAIL",
+          "reason": "Contradictory policies were silently resolved or the CONFLICT response shape was invalid."
+        },
+        {
+          "rule": "Business status",
+          "expected": "CONFLICT",
+          "observed": "ANSWERED",
+          "verdict": "FAIL",
+          "reason": "Business status does not match expected behavior."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The annual home-office allowance is INR 12,000.",
+            "citations": [
+              {
+                "chunk_id": "P07",
+                "quote": "The annual home-office allowance for employees is INR 12000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        }
+      ]
+    },
+    {
+      "recording_id": "05",
+      "overall_verdict": "PASS",
+      "pass_count": 3,
+      "fail_count": 0,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "INSUFFICIENT_EVIDENCE",
+          "observed": "INSUFFICIENT_EVIDENCE",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "INSUFFICIENT_EVIDENCE",
+            "answer": null,
+            "citations": []
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        }
+      ]
+    },
+    {
+      "recording_id": "06",
+      "overall_verdict": "FAIL",
+      "pass_count": 5,
+      "fail_count": 1,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 35000."
+            }
+          ],
+          "verdict": "FAIL",
+          "reason": "P02: quote does not exactly match policy passage"
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 35000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "Required fact is present."
+        }
+      ]
+    },
+    {
+      "recording_id": "07",
+      "overall_verdict": "FAIL",
+      "pass_count": 2,
+      "fail_count": 2,
+      "checks": [
+        {
+          "rule": "HTTP status",
+          "expected": 503,
+          "observed": 200,
+          "verdict": "FAIL",
+          "reason": "HTTP status does not match the contract."
+        },
+        {
+          "rule": "Provider event",
+          "expected": "timeout",
+          "observed": "timeout",
+          "verdict": "PASS",
+          "reason": "Provider event matches expected behavior."
+        },
+        {
+          "rule": "Provider error HTTP mapping",
+          "expected": 503,
+          "observed": 200,
+          "verdict": "FAIL",
+          "reason": "Provider failure is mapped to the wrong HTTP status."
+        },
+        {
+          "rule": "Generation attempt count",
+          "expected": 1,
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "Generation attempt count matches expectation."
+        }
+      ]
+    },
+    {
+      "recording_id": "08",
+      "overall_verdict": "FAIL",
+      "pass_count": 5,
+      "fail_count": 1,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P02",
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "Ineligible context detected: ['P06']"
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "All citation quotations reference eligible policy text."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 25000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "Required fact is present."
+        }
+      ]
+    },
+    {
+      "recording_id": "09",
+      "overall_verdict": "FAIL",
+      "pass_count": 3,
+      "fail_count": 3,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "Ineligible context detected: ['P06']"
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P06",
+              "quote": "The annual certification reimbursement limit for employees is INR 80000."
+            }
+          ],
+          "verdict": "FAIL",
+          "reason": "P06: citation references an ineligible policy"
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 80,000.",
+            "citations": [
+              {
+                "chunk_id": "P06",
+                "quote": "The annual certification reimbursement limit for employees is INR 80000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "Your annual certification limit is INR 80,000.",
+          "verdict": "FAIL",
+          "reason": "Required fact is missing from the answer."
+        }
+      ]
+    },
+    {
+      "recording_id": "10",
+      "overall_verdict": "FAIL",
+      "pass_count": 5,
+      "fail_count": 1,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "All citation quotations reference eligible policy text."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 25000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [
+            "claim is approved",
+            "payment is guaranteed"
+          ],
+          "verdict": "FAIL",
+          "reason": "Unsupported claim(s) detected: ['claim is approved', 'payment is guaranteed']"
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.",
+          "verdict": "PASS",
+          "reason": "Required fact is present."
+        }
+      ]
+    },
+    {
+      "recording_id": "11",
+      "overall_verdict": "FAIL",
+      "pass_count": 5,
+      "fail_count": 1,
+      "checks": [
+        {
+          "rule": "Generation context eligibility",
+          "expected": [
+            "P02",
+            "P07",
+            "P08",
+            "P09",
+            "P10",
+            "P11"
+          ],
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "All generation context passages are eligible."
+        },
+        {
+          "rule": "Conflict handling",
+          "expected": "Not applicable",
+          "observed": "No multiple relevant policies",
+          "verdict": "NOT_EVALUATED",
+          "reason": "Fewer than two simultaneously eligible policies address the requested subject."
+        },
+        {
+          "rule": "Business status",
+          "expected": "ANSWERED",
+          "observed": "ANSWERED",
+          "verdict": "PASS",
+          "reason": "Business status matches expected behavior."
+        },
+        {
+          "rule": "Citation integrity",
+          "expected": "Citation references an eligible passage and quote exactly matches the policy passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "All citation quotations reference eligible policy text."
+        },
+        {
+          "rule": "Response contract",
+          "expected": "ANSWERED: non-empty answer with citation(s); INSUFFICIENT_EVIDENCE/CONFLICT: null answer and empty citations",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "For certification, the yearly employee cap is 25,000 Indian rupees.",
+            "citations": [
+              {
+                "chunk_id": "P02",
+                "quote": "The annual certification reimbursement limit for employees is INR 25000."
+              }
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "Response shape matches the status contract."
+        },
+        {
+          "rule": "No prohibited claims",
+          "expected": "No unsupported approval/payment claims",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "No prohibited business claims detected."
+        },
+        {
+          "rule": "Required fact",
+          "expected": "INR 25,000",
+          "observed": "For certification, the yearly employee cap is 25,000 Indian rupees.",
+          "verdict": "FAIL",
+          "reason": "Required fact is missing from the answer."
+        }
+      ]
+    },
+    {
+      "recording_id": "12",
+      "overall_verdict": "PASS",
+      "pass_count": 2,
+      "fail_count": 0,
+      "checks": [
+        {
+          "rule": "HTTP status",
+          "expected": 400,
+          "observed": 400,
+          "verdict": "PASS",
+          "reason": "HTTP status matches expected contract behavior."
+        },
+        {
+          "rule": "Invalid request must not invoke generation",
+          "expected": {
+            "generation_attempts": 0,
+            "provider_event": "not_called",
+            "model_context_ids": []
+          },
+          "observed": {
+            "generation_attempts": 0,
+            "provider_event": "not_called",
+            "model_context_ids": []
+          },
+          "verdict": "PASS",
+          "reason": "No generation was invoked for invalid request."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "recording_id": "V01",
+  "request": {
+    "caller_id": "atlas-employee-01",
+    "as_of": "2026-09-21",
+    "question": "What is my annual certification reimbursement limit?"
+  },
+  "observed": {
+    "http_status": 200,
+    "status": "ANSWERED",
+    "answer": "Your annual certification limit is INR 35,000.",
+    "citations": [
+      {
+        "chunk_id": "P02",
+        "quote": "The annual certification reimbursement limit for employees is INR 25000."
+      }
+    ]
+  },
+  "trace": {
+    "model_context_ids": ["P02"],
+    "generation_attempts": 1,
+    "provider_event": "success"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "01": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "Atlas employee has an approved certification policy effective on 2026-09-21. P02 is the applicable policy."
+  },
+  "02": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "The caller is an Atlas contractor. The employee policy P02 is not applicable; the response using P02 is therefore defective."
+  },
+  "03": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "For 2026-06-01, P02 is effective and P01 has expired. Using P01 is incorrect."
+  },
+  "04": {
+    "expected_status": "CONFLICT",
+    "expected_http": 200,
+    "rationale": "P07 and P08 are simultaneously applicable Atlas employee home-office policies with different amounts."
+  },
+  "05": {
+    "expected_status": "INSUFFICIENT_EVIDENCE",
+    "expected_http": 200,
+    "rationale": "The corpus does not establish a gym membership reimbursement amount."
+  },
+  "06": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "The answer amount is correct, but the supplied citation quote contradicts the actual P02 passage and should fail citation integrity."
+  },
+  "07": {
+    "expected_status": "PROVIDER_FAILURE",
+    "expected_http": 503,
+    "rationale": "A provider timeout must map to HTTP 503 and must not be presented as an ordinary insufficient-evidence response."
+  },
+  "08": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "P06 is Boreal-only and must not be used for the Atlas caller. The recorded context also contains an ineligible passage."
+  },
+  "09": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "The caller identity comes from the caller header and cannot be overridden by prompt text."
+  },
+  "10": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "The certification amount is supported, but the approval and payment-guarantee claims are unsupported."
+  },
+  "11": {
+    "expected_status": "ANSWERED",
+    "expected_http": 200,
+    "rationale": "The answer expresses the P02 amount using meaning-preserving wording."
+  },
+  "12": {
+    "expected_status": "INVALID_REQUEST",
+    "expected_http": 400,
+    "rationale": "Whitespace-only question is invalid and must not invoke generation."
+  }
+}
